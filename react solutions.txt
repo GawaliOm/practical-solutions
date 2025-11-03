@@ -1,0 +1,342 @@
+## **Q.1) Create a class-based Component and display the list of programming languages you know on a webpage.**
+
+```jsx
+import React, { Component } from 'react';
+
+class ProgrammingLanguages extends Component {
+  render() {
+    const languages = ["JavaScript", "Python", "C++", "Java", "React"];
+    return (
+      <div>
+        <h2>Programming Languages I Know:</h2>
+        <ul>
+          {languages.map((lang, index) => <li key={index}>{lang}</li>)}
+        </ul>
+      </div>
+    );
+  }
+}
+
+export default ProgrammingLanguages;
+```
+
+---
+
+## **Q.2) Create a function-based Component and display your own details like Name, DOB, Contact Number, Address etc.**
+
+```jsx
+function MyDetails() {
+  return (
+    <div>
+      <h2>My Details</h2>
+      <p><b>Name:</b> John Doe</p>
+      <p><b>DOB:</b> 01-01-2000</p>
+      <p><b>Contact:</b> 9876543210</p>
+      <p><b>Address:</b> New York, USA</p>
+    </div>
+  );
+}
+
+export default MyDetails;
+```
+
+---
+
+## **Q.1) Create a class-based Component Student and display the Student details.**
+
+```jsx
+import React, { Component } from 'react';
+
+class Student extends Component {
+  render() {
+    return (
+      <div>
+        <h2>Student Details</h2>
+        <p>Name: Alice</p>
+        <p>Age: 21</p>
+        <p>Course: B.Tech</p>
+      </div>
+    );
+  }
+}
+
+export default Student;
+```
+
+---
+
+## **Q.2) Add an attribute to pass a name to the Student Component and use it in render() function to display the Name of Student.**
+
+```jsx
+class Student extends Component {
+  render() {
+    return (
+      <div>
+        <h3>Student Name: {this.props.name}</h3>
+      </div>
+    );
+  }
+}
+export default Student;
+```
+
+**In `App.js`:**
+
+```jsx
+<Student name="Alice" />
+```
+
+---
+
+## **Q.1) Create a class Component Student and display Student Component in root.**
+
+```jsx
+// App.js
+import React from 'react';
+import Student from './Student';
+
+function App() {
+  return <Student />;
+}
+export default App;
+```
+
+---
+
+## **Q.2) Create a Constructor function in the Student Component and add an Address property. Use the Address property in render function to display it.**
+
+```jsx
+class Student extends Component {
+  constructor() {
+    super();
+    this.state = { address: "Mumbai, India" };
+  }
+
+  render() {
+    return (
+      <div>
+        <h3>Address: {this.state.address}</h3>
+      </div>
+    );
+  }
+}
+export default Student;
+```
+
+---
+
+## **Q.1) Create a class Component called Result. Use the Student Component inside the Result Component.**
+
+```jsx
+import React, { Component } from 'react';
+import Student from './Student';
+
+class Result extends Component {
+  render() {
+    return (
+      <div>
+        <h2>Student Result</h2>
+        <Student name="Alice" />
+      </div>
+    );
+  }
+}
+export default Result;
+```
+
+---
+
+## **Q.2) Create a class Component called Result and display the result of 5 Students.**
+
+```jsx
+class Result extends Component {
+  render() {
+    const students = [
+      { name: "Alice", marks: 85 },
+      { name: "Bob", marks: 78 },
+      { name: "Charlie", marks: 92 },
+      { name: "David", marks: 80 },
+      { name: "Eva", marks: 88 }
+    ];
+    return (
+      <div>
+        <h2>Results of Students</h2>
+        <ul>
+          {students.map((s, i) => (
+            <li key={i}>{s.name}: {s.marks}</li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+}
+export default Result;
+```
+
+---
+
+## **Q.1) Create a Constructor function in the Car Component and add a Colour property. Use the Colour property in render function to display it.**
+
+```jsx
+class Car extends Component {
+  constructor() {
+    super();
+    this.state = { colour: "Red" };
+  }
+
+  render() {
+    return <h3>Car Colour: {this.state.colour}</h3>;
+  }
+}
+export default Car;
+```
+
+---
+
+## **Q.2) Create a Football Component. Put a shoot() function in it. Call this shoot() on button click.**
+
+```jsx
+function Football() {
+  function shoot() {
+    alert("Goal!");
+  }
+  return (
+    <button onClick={shoot}>Shoot</button>
+  );
+}
+export default Football;
+```
+
+---
+
+## **Q.1) Create a Cricket Component. Put a wicket() function in it. Call this wicket() on button click.**
+
+```jsx
+function Cricket() {
+  function wicket() {
+    alert("Wicket!");
+  }
+  return (
+    <button onClick={wicket}>Take Wicket</button>
+  );
+}
+export default Cricket;
+```
+
+---
+
+## **Q.2) Create a list of Car brands in Garage Component. Render all the Car from Garage.**
+
+```jsx
+class Garage extends Component {
+  render() {
+    const brands = ["BMW", "Audi", "Tesla", "Toyota"];
+    return (
+      <div>
+        <h2>Car Brands:</h2>
+        <ul>
+          {brands.map((brand, index) => (
+            <li key={index}>{brand}</li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+}
+export default Garage;
+```
+
+---
+
+## **Q.1) Create a simple ReactJS app and display “GOOD MORNING” message on webpage.**
+
+```jsx
+function App() {
+  return <h1>GOOD MORNING</h1>;
+}
+export default App;
+```
+
+---
+
+## **Q.2) Create a list of Friends and display the list on webpage.**
+
+```jsx
+function Friends() {
+  const friends = ["John", "Sara", "Mike", "Tina"];
+  return (
+    <div>
+      <h2>My Friends</h2>
+      <ul>
+        {friends.map((friend, index) => (
+          <li key={index}>{friend}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+export default Friends;
+```
+
+---
+
+## **Q.1) Create a class Component called Salary. Use the Employee Component inside the Salary Component.**
+
+```jsx
+import React, { Component } from 'react';
+import Employee from './Employee';
+
+class Salary extends Component {
+  render() {
+    return (
+      <div>
+        <h2>Employee Salary Details</h2>
+        <Employee name="John" contact="9876543210" />
+      </div>
+    );
+  }
+}
+export default Salary;
+```
+
+---
+
+## **Q.2) Create a class Component called Salary and display the Salary of 5 Employees.**
+
+```jsx
+class Employee extends Component {
+  render() {
+    return (
+      <div>
+        <h4>Name: {this.props.name}</h4>
+        <p>Contact: {this.props.contact}</p>
+      </div>
+    );
+  }
+}
+
+class Salary extends Component {
+  render() {
+    const employees = [
+      { name: "John", salary: 40000, contact: "9998887770" },
+      { name: "Sara", salary: 42000, contact: "8889997770" },
+      { name: "Mike", salary: 38000, contact: "7778889990" },
+      { name: "Tina", salary: 45000, contact: "6667778880" },
+      { name: "Alex", salary: 47000, contact: "5556667770" }
+    ];
+    return (
+      <div>
+        <h2>Employee Salaries</h2>
+        {employees.map((emp, i) => (
+          <div key={i}>
+            <Employee name={emp.name} contact={emp.contact} />
+            <p>Salary: ₹{emp.salary}</p>
+            <hr />
+          </div>
+        ))}
+      </div>
+    );
+  }
+}
+
+export default Salary;
